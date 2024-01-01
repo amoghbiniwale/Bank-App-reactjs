@@ -14,9 +14,12 @@ import AddNewAccount from './components/AdminDashboard/Accounts/AddNewAccount';
 import UserDashboard from './components/UserDashboard/UserDashboard';
 import Passbook from './components/UserDashboard/Passbook/Passbook';
 import Transaction from './components/UserDashboard/Transaction/Transaction';
+
+import backgroundImage from './bg.jpg';
+
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path='/admindashboard/:username/:role/:token' element={<AdminDashboard />} />

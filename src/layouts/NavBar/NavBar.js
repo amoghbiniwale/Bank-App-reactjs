@@ -1,14 +1,21 @@
 import React from "react";
 import './NavBar.css';
+import { useNavigate } from "react-router-dom";
 
 const NavBar = ({ user }) => {
   if (user.role === "ADMIN") {
+    const navigateObject = new useNavigate();
+    const handleClick = () => {
+      navigateObject(
+        `/`
+      );
+    };
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-            Welcome {user.username}
+              Welcome {user.username}
             </a>
             <button
               className="navbar-toggler"
@@ -49,7 +56,7 @@ const NavBar = ({ user }) => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href={`/logout`}>
+                  <a className="nav-link" onClick={handleClick}>
                     Log Out
                   </a>
                 </li>
